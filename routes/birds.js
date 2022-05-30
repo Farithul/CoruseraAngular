@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 })
 // define the about route
 router.get('/about', (req, res) => {
-  res.send('About birds')
+  res.send(' + req.params.dishId +')
 })
 
 module.exports = router

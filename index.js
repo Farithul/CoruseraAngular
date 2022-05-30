@@ -5,18 +5,28 @@ const express = require('express'),
 
 const hostname = 'localhost';
 const port = 5000;
-
 const app = express();
+
+
 const dishRouter = require('./routes/dishRouter');
-const birds = require('./routes/birds')
+const leaderRouter = require('./routes/leaderRouter');
+const promoRouter = require('./routes/promoRouter');
+
 
 
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
+
+
+
+
 app.use('/dishes', dishRouter);
-app.use('/birds', birds);
-//routes.initialize(app);
+app.use('/leaders', leaderRouter);
+app.use('/promotions', promoRouter);
+
+
+
 const server = http.createServer(app);
 
 server.listen(port, hostname, () => {
